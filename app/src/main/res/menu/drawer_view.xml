@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/nav_group_tasks"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_recent"
+            android:icon="@drawable/ic_recent"
+            android:title="@string/recent"
+            android:checked="true"/>
+        <item
+            android:id="@+id/nav_favorites"
+            android:icon="@drawable/ic_favorite"
+            android:title="@string/favorites" />
+        <item
+            android:id="@+id/nav_responded"
+            android:icon="@drawable/ic_done"
+            android:title="@string/responded" />
+        <item
+            android:id="@+id/nav_sent"
+            android:icon="@drawable/ic_send"
+            android:title="@string/sent" />
+    </group>
+    <group
+        android:id="@+id/nav_group_settings"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_person"
+            android:title="@string/profile" />
+        <item
+            android:id="@+id/nav_sensors"
+            android:icon="@drawable/ic_sensor"
+            android:title="@string/sensors" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/settings" />
+    </group>
+    <group
+        android:id="@+id/nav_group_help"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/ic_help"
+            android:title="@string/help" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_info"
+            android:title="@string/about" />
+    </group>
+</menu>

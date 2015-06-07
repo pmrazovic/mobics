@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MobiCS</string>
+
+    <string name="recent">Recent</string>
+    <string name="favorites">Favorite</string>
+    <string name="responded">Responded</string>
+    <string name="sent">Sent</string>
+    <string name="profile">My profile</string>
+    <string name="sensors">Device sensors</string>
+    <string name="settings">Settings</string>
+    <string name="help">Help and feedback</string>
+    <string name="about">About</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+</resources>
