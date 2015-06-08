@@ -1,15 +1,27 @@
 <resources>
     <string name="app_name">MobiCS</string>
 
-    <string name="recent">Recent</string>
+    <string name="home">Home</string>
+    <string name="mobics">MobiCS</string>
     <string name="favorites">Favorite</string>
+    <string name="favorite_tasks">Favorite tasks</string>
     <string name="responded">Responded</string>
+    <string name="responded_tasks">Responded tasks</string>
     <string name="sent">Sent</string>
+    <string name="sent_tasks">Sent tasks</string>
     <string name="profile">My profile</string>
+    <string name="my_profile">My profile</string>
     <string name="sensors">Device sensors</string>
+    <string name="device_sensors">Device sensors</string>
     <string name="settings">Settings</string>
     <string name="help">Help and feedback</string>
     <string name="about">About</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_search">Search</string>
+    <string name="action_filter">Filter</string>
+    <string name="action_sort">Sort</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
