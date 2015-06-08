@@ -19,6 +19,7 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
     private static final String CURRENT_CONTENT_TAG = "se.kth.mrazovic.mobics.current_content";
     private static final String CURRENT_CONTENT_NAV_ITEM = "se.kth.mrazovic.mobics.current_content_nav_item";
+
     private DrawerLayout mDrawerLayout;
     private Toolbar mToolbar;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Find drawer layout
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        // Find drawer navigation view and implement select listener for navigation items
+        // Find drawer navigation view and implement OnNavigationItemSelectedListener interface
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         setupDrawerContent(navigationView);
         // Setup action bar drawer toggle
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         mCurrentContentNavItem.setChecked(true);
     }
 
+    // Implements OnNavigationItemSelectedListener interface
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    //
+    // Replace fragments (or start new activity) on navigation item selected
     private void selectDrawerItem(MenuItem menuItem) {
 
         switch(menuItem.getItemId()) {
@@ -118,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        // Save current checked navigation item
+        // Save currently checked navigation item
         outState.putInt(CURRENT_CONTENT_NAV_ITEM, mCurrentContentNavItem.getItemId());
     }
 
