@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group
-        android:id="@+id/nav_group_tasks"
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
@@ -19,10 +18,6 @@
             android:id="@+id/nav_sent"
             android:icon="@drawable/ic_send"
             android:title="@string/sent" />
-    </group>
-    <group
-        android:id="@+id/nav_group_settings"
-        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_person"
@@ -35,10 +30,6 @@
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_settings"
             android:title="@string/settings" />
-    </group>
-    <group
-        android:id="@+id/nav_group_help"
-        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_help"
             android:icon="@drawable/ic_help"

@@ -1,5 +1,8 @@
 package se.kth.mrazovic.mobics;
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.support.v4.app.FragmentManager;
 import android.content.res.Configuration;
 import android.support.design.widget.NavigationView;
@@ -14,6 +17,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Make status bar transparent for SDK 21 and higher
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
         setContentView(R.layout.activity_main);
 
         // Set a toolbar to replace ActionBar
@@ -77,38 +87,44 @@ public class MainActivity extends AppCompatActivity {
 
     // Replace fragments (or start new activity) on navigation item selected
     private void selectDrawerItem(MenuItem menuItem) {
+        Fragment newContent = null;
 
         switch(menuItem.getItemId()) {
             case R.id.nav_home:
-                mCurrentContent = (Fragment) HomeFragment.newInstance(this);
+                newContent = (Fragment) HomeFragment.newInstance(this);
                 break;
             case R.id.nav_favorites:
-                mCurrentContent = (Fragment) FavoriteTasksFragment.newInstance(this);
+                newContent = (Fragment) FavoriteTasksFragment.newInstance(this);
                 break;
             case R.id.nav_responded:
-                mCurrentContent = (Fragment) RespondedTasksFragment.newInstance(this);
+                newContent = (Fragment) RespondedTasksFragment.newInstance(this);
                 break;
             case R.id.nav_sent:
-                mCurrentContent = (Fragment) SentTasksFragment.newInstance(this);
+                newContent = (Fragment) SentTasksFragment.newInstance(this);
                 break;
             case R.id.nav_profile:
-                mCurrentContent = (Fragment) MyProfileFragment.newInstance(this);
+                newContent = (Fragment) MyProfileFragment.newInstance(this);
                 break;
             case R.id.nav_sensors:
-                mCurrentContent = (Fragment) SensorsFragment.newInstance(this);
+                newContent = (Fragment) SensorsFragment.newInstance(this);
                 break;
             case R.id.nav_settings:
                 break;
             case R.id.nav_help:
+                // Start new activity
+                Intent helpIntent = new Intent(this, HelpActivity.class);
+                startActivity(helpIntent);
+                mDrawerLayout.closeDrawers();
                 break;
             case R.id.nav_about:
                 break;
         }
 
-        if (mCurrentContent != null) {
+        if (newContent != null) {
             // Insert the fragment by replacing any existing fragment
             FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, mCurrentContent, CURRENT_CONTENT_TAG).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, newContent, CURRENT_CONTENT_TAG).commit();
+            mCurrentContent = newContent;
 
             // Highlight the selected item, update the title, and close the drawer
             mCurrentContentNavItem = menuItem;
