@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_search"
         android:title="@string/action_search"
         mobics:showAsAction="ifRoom" />
-    <item android:id="@+id/action_settings"
+    <item android:id="@+id/action_filter"
         android:title="@string/action_filter"
         mobics:showAsAction="never" />
     <item android:id="@+id/action_sort"
