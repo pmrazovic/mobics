@@ -22,11 +22,7 @@
     <string name="action_filter">Filter</string>
     <string name="action_sort">Sort</string>
     <string name="action_edit_profile">Edit profile</string>
-
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_help">Help &amp; feedback</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_about">About MobiCS</string>
 </resources>

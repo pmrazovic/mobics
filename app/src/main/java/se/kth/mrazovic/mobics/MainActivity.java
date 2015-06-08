@@ -7,18 +7,13 @@ import android.support.v4.app.FragmentManager;
 import android.content.res.Configuration;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
-import android.view.WindowManager;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String CURRENT_CONTENT_NAV_ITEM = "se.kth.mrazovic.mobics.current_content_nav_item";
 
     private DrawerLayout mDrawerLayout;
-    private Toolbar mToolbar;
     private ActionBarDrawerToggle mDrawerToggle;
     private Fragment mCurrentContent;
     private MenuItem mCurrentContentNavItem;
@@ -42,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Set a toolbar to replace ActionBar
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
-        // Add menu and up icon
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        // Add menu up icon
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Find drawer layout
@@ -114,9 +108,11 @@ public class MainActivity extends AppCompatActivity {
                 // Start new activity
                 Intent helpIntent = new Intent(this, HelpActivity.class);
                 startActivity(helpIntent);
-                mDrawerLayout.closeDrawers();
                 break;
             case R.id.nav_about:
+                // Start new activity
+                Intent aboutIntent = new Intent(this, AboutActivity.class);
+                startActivity(aboutIntent);
                 break;
         }
 
@@ -129,8 +125,8 @@ public class MainActivity extends AppCompatActivity {
             // Highlight the selected item, update the title, and close the drawer
             mCurrentContentNavItem = menuItem;
             mCurrentContentNavItem.setChecked(true);
-            mDrawerLayout.closeDrawers();
         }
+        mDrawerLayout.closeDrawers();
     }
 
     @Override
@@ -148,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_activity_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
