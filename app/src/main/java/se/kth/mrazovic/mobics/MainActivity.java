@@ -126,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
+        // Replace content fragment of new activity is not started
         if (newContent != null && newContentTag != null) {
             // Insert the fragment by replacing any existing fragment
             FragmentManager fragmentManager = getSupportFragmentManager();
