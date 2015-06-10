@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class SensorsFragment extends Fragment {
+    public static final String TAG = "se.kth.mrazovic.mobics.SENSORS_FRAGMENT";
 
 
     public SensorsFragment() {
@@ -25,8 +26,6 @@ public class SensorsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // retain this fragment
-        setRetainInstance(true);
         // The fragment modifies option menu actions
         setHasOptionsMenu(true);
     }

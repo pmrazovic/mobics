@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 
 public class SentTasksFragment extends Fragment {
+    public static final String TAG = "se.kth.mrazovic.mobics.SENT_TASKS_FRAGMENT";
 
 
     public SentTasksFragment() {
@@ -24,8 +25,6 @@ public class SentTasksFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // retain this fragment
-        setRetainInstance(true);
     }
 
     @Override

@@ -17,12 +17,13 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends AppCompatActivity {
-    private static final String CURRENT_CONTENT_TAG = "se.kth.mrazovic.mobics.current_content";
-    private static final String CURRENT_CONTENT_NAV_ITEM = "se.kth.mrazovic.mobics.current_content_nav_item";
+    private static final String CURRENT_CONTENT_TAG = "se.kth.mrazovic.mobics.CURRENT_CONTENT_TAG";
+    private static final String CURRENT_CONTENT_NAV_ITEM = "se.kth.mrazovic.mobics.CURRENT_CONTENT_NAV_ITEM";
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private Fragment mCurrentContent;
+    private String mCurrentContentTag;
     private MenuItem mCurrentContentNavItem;
 
     @Override
@@ -53,16 +54,18 @@ public class MainActivity extends AppCompatActivity {
         // Find the retained fragment on activity restarts
         FragmentManager fragmentManager = getSupportFragmentManager();
         if (savedInstanceState != null) {
-            mCurrentContent = (Fragment) fragmentManager.findFragmentByTag(CURRENT_CONTENT_TAG);
+            mCurrentContentTag = savedInstanceState.getString(CURRENT_CONTENT_TAG);
+            mCurrentContent = (Fragment) fragmentManager.findFragmentByTag(mCurrentContentTag);
             mCurrentContentNavItem = navigationView.getMenu().findItem(savedInstanceState.getInt(CURRENT_CONTENT_NAV_ITEM));
         }
         // Create fragment for the first time
-        if (mCurrentContent == null) {
+        if (mCurrentContent == null || mCurrentContentTag == null) {
             mCurrentContent = HomeFragment.newInstance(this);
+            mCurrentContentTag = HomeFragment.TAG;
             mCurrentContentNavItem = navigationView.getMenu().findItem(R.id.nav_home);
         }
         // Replace fragment and check corresponding navigation item
-        fragmentManager.beginTransaction().replace(R.id.content_frame, mCurrentContent, CURRENT_CONTENT_TAG).commit();
+        fragmentManager.beginTransaction().replace(R.id.content_frame, mCurrentContent, mCurrentContentTag).commit();
         mCurrentContentNavItem.setChecked(true);
     }
 
@@ -82,25 +85,32 @@ public class MainActivity extends AppCompatActivity {
     // Replace fragments (or start new activity) on navigation item selected
     private void selectDrawerItem(MenuItem menuItem) {
         Fragment newContent = null;
+        String newContentTag = null;
 
         switch(menuItem.getItemId()) {
             case R.id.nav_home:
                 newContent = (Fragment) HomeFragment.newInstance(this);
+                newContentTag = HomeFragment.TAG;
                 break;
             case R.id.nav_favorites:
                 newContent = (Fragment) FavoriteTasksFragment.newInstance(this);
+                newContentTag = FavoriteTasksFragment.TAG;
                 break;
             case R.id.nav_responded:
                 newContent = (Fragment) RespondedTasksFragment.newInstance(this);
+                newContentTag = RespondedTasksFragment.TAG;
                 break;
             case R.id.nav_sent:
                 newContent = (Fragment) SentTasksFragment.newInstance(this);
+                newContentTag = SentTasksFragment.TAG;
                 break;
             case R.id.nav_profile:
                 newContent = (Fragment) MyProfileFragment.newInstance(this);
+                newContentTag = MyProfileFragment.TAG;
                 break;
             case R.id.nav_sensors:
                 newContent = (Fragment) SensorsFragment.newInstance(this);
+                newContentTag = SensorsFragment.TAG;
                 break;
             case R.id.nav_settings:
                 break;
@@ -116,11 +126,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        if (newContent != null) {
+        if (newContent != null && newContentTag != null) {
             // Insert the fragment by replacing any existing fragment
             FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, newContent, CURRENT_CONTENT_TAG).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, newContent, newContentTag).commit();
             mCurrentContent = newContent;
+            mCurrentContentTag = newContentTag;
 
             // Highlight the selected item, update the title, and close the drawer
             mCurrentContentNavItem = menuItem;
@@ -133,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         // Save currently checked navigation item
+        outState.putString(CURRENT_CONTENT_TAG, mCurrentContentTag);
         outState.putInt(CURRENT_CONTENT_NAV_ITEM, mCurrentContentNavItem.getItemId());
     }
 

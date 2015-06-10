@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 
 public class RespondedTasksFragment extends Fragment {
+    public static final String TAG = "se.kth.mrazovic.mobics.RESPONDED_TASKS_FRAGMENT";
 
 
     public RespondedTasksFragment() {
@@ -24,8 +25,6 @@ public class RespondedTasksFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // retain this fragment
-        setRetainInstance(true);
     }
 
     @Override

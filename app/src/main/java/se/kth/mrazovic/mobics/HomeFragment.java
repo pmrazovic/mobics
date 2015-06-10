@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 
 public class HomeFragment extends Fragment {
+    public static final String TAG = "se.kth.mrazovic.mobics.HOME_FRAGMENT";
 
 
     public HomeFragment() {
@@ -24,8 +25,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // retain this fragment
-        setRetainInstance(true);
     }
 
     @Override

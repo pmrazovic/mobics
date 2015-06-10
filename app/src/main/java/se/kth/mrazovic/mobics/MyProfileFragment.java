@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 
 public class MyProfileFragment extends Fragment {
+    public static final String TAG = "se.kth.mrazovic.mobics.MY_PROFILE_FRAGMENT";
     private static int ACTION_EDIT_PROFILE_ID  = Menu.FIRST;
 
 

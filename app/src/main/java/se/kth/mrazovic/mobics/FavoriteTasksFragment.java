@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 
 public class FavoriteTasksFragment extends Fragment {
+    public static final String TAG = "se.kth.mrazovic.mobics.FAVORITE_TASKS_FRAGMENT";
 
 
     public FavoriteTasksFragment() {
@@ -24,8 +25,6 @@ public class FavoriteTasksFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // retain this fragment
-        setRetainInstance(true);
     }
 
 
