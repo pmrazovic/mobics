@@ -17,8 +17,8 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends AppCompatActivity {
-    private static final String CURRENT_CONTENT_TAG = "se.kth.mrazovic.mobics.CURRENT_CONTENT_TAG";
-    private static final String CURRENT_CONTENT_NAV_ITEM = "se.kth.mrazovic.mobics.CURRENT_CONTENT_NAV_ITEM";
+    private final String CURRENT_CONTENT_TAG = "se.kth.mrazovic.mobics.CURRENT_CONTENT_TAG";
+    private final String CURRENT_CONTENT_NAV_ITEM = "se.kth.mrazovic.mobics.CURRENT_CONTENT_NAV_ITEM";
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
