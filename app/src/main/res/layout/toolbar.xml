@@ -4,8 +4,5 @@
     android:id="@+id/toolbar"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:minHeight="?attr/actionBarSize"
-    mobics:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    mobics:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-    android:background="?attr/colorPrimary">
+    style="@style/ToolbarStyle">
 </android.support.v7.widget.Toolbar>
