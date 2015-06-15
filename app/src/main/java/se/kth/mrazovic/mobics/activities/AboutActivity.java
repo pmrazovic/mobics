@@ -1,4 +1,4 @@
-package se.kth.mrazovic.mobics;
+package se.kth.mrazovic.mobics.activities;
 
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import se.kth.mrazovic.mobics.R;
 
 
 public class AboutActivity extends AppCompatActivity {

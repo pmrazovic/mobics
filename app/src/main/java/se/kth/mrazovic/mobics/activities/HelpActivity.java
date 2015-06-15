@@ -1,4 +1,4 @@
-package se.kth.mrazovic.mobics;
+package se.kth.mrazovic.mobics.activities;
 
 import android.graphics.Color;
 import android.os.Build;
@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+
+import se.kth.mrazovic.mobics.R;
 
 
 public class HelpActivity extends AppCompatActivity {

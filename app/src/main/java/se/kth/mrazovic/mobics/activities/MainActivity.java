@@ -1,4 +1,4 @@
-package se.kth.mrazovic.mobics;
+package se.kth.mrazovic.mobics.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,6 +14,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import se.kth.mrazovic.mobics.fragments.FavoriteTasksFragment;
+import se.kth.mrazovic.mobics.fragments.HomeFragment;
+import se.kth.mrazovic.mobics.fragments.MyProfileFragment;
+import se.kth.mrazovic.mobics.R;
+import se.kth.mrazovic.mobics.fragments.RespondedTasksFragment;
+import se.kth.mrazovic.mobics.fragments.SensorsFragment;
+import se.kth.mrazovic.mobics.fragments.SentTasksFragment;
 
 
 public class MainActivity extends AppCompatActivity {

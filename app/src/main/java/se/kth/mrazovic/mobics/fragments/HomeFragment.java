@@ -1,4 +1,4 @@
-package se.kth.mrazovic.mobics;
+package se.kth.mrazovic.mobics.fragments;
 
 
 import android.content.Context;
@@ -9,6 +9,9 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import se.kth.mrazovic.mobics.R;
+import se.kth.mrazovic.mobics.se.kth.mrazovic.mobics.adapters.TaskListPagerAdapter;
 
 
 public class HomeFragment extends Fragment {

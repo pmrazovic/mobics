@@ -1,4 +1,4 @@
-package se.kth.mrazovic.mobics;
+package se.kth.mrazovic.mobics.fragments;
 
 
 import android.content.Context;
@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import se.kth.mrazovic.mobics.R;
 
 
 public class RespondedTasksFragment extends Fragment {

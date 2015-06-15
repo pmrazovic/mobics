@@ -1,9 +1,13 @@
-package se.kth.mrazovic.mobics;
+package se.kth.mrazovic.mobics.se.kth.mrazovic.mobics.adapters;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
+import se.kth.mrazovic.mobics.R;
+import se.kth.mrazovic.mobics.fragments.HumanTasksPageFragment;
+import se.kth.mrazovic.mobics.fragments.SensingTasksPageFragment;
 
 /**
  * Created by Petar Mrazovic on 11.06.15..

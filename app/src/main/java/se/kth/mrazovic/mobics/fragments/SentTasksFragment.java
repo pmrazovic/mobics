@@ -1,4 +1,4 @@
-package se.kth.mrazovic.mobics;
+package se.kth.mrazovic.mobics.fragments;
 
 
 import android.content.Context;
@@ -8,17 +8,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
-public class FavoriteTasksFragment extends Fragment {
-    public static final String TAG = "se.kth.mrazovic.mobics.FAVORITE_TASKS_FRAGMENT";
+import se.kth.mrazovic.mobics.R;
 
 
-    public FavoriteTasksFragment() {
+public class SentTasksFragment extends Fragment {
+    public static final String TAG = "se.kth.mrazovic.mobics.SENT_TASKS_FRAGMENT";
+
+
+    public SentTasksFragment() {
         // Required empty public constructor
     }
 
     public static Fragment newInstance(Context context) {
-        FavoriteTasksFragment fragment = new FavoriteTasksFragment();
+        SentTasksFragment fragment = new SentTasksFragment();
         return fragment;
     }
 
@@ -27,13 +29,12 @@ public class FavoriteTasksFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        getActivity().setTitle(getString(R.string.favorite_tasks));
+        getActivity().setTitle(getString(R.string.sent_tasks));
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorite_tasks, container, false);
+        return inflater.inflate(R.layout.fragment_sent_tasks, container, false);
     }
 
 
