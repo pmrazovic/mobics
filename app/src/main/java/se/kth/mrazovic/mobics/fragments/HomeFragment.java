@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import se.kth.mrazovic.mobics.R;
-import se.kth.mrazovic.mobics.se.kth.mrazovic.mobics.adapters.TaskListPagerAdapter;
+import se.kth.mrazovic.mobics.adapters.TaskListPagerAdapter;
 
 
 public class HomeFragment extends Fragment {

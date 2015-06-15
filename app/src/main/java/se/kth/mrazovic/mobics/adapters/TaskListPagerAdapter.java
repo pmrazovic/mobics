@@ -1,4 +1,4 @@
-package se.kth.mrazovic.mobics.se.kth.mrazovic.mobics.adapters;
+package se.kth.mrazovic.mobics.adapters;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
