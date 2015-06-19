@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import se.kth.mrazovic.mobics.fragments.FavoriteTasksFragment;
 import se.kth.mrazovic.mobics.fragments.HomeFragment;
@@ -44,22 +45,38 @@ public class MainActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_main);
 
-        // Set a toolbar to replace ActionBar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        // Add menu up icon
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         // Find drawer layout
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         // Find drawer navigation view and implement OnNavigationItemSelectedListener interface
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         setupDrawerContent(navigationView);
+
         // Setup action bar drawer toggle
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
+        // We override methods to prevent "hamburger icon" animation which is not needed when navigation drawer overlaps toolbar
+        // Fragments will create their own toolbars and set them as action bars, but in the host activity we need set up
+        // navigation drawer (menuUp) icon. Fragment will additionally set up local "menuUp" icon.
+        // TODO: With new release of Android support package replace ActionBarDrawerToggle
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close){
+
+            @Override
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                super.onDrawerSlide(drawerView, 0); // this disables the arrow
+            }
+
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                super.onDrawerSlide(drawerView, 0); // this disables the animation
+            }
+        };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        // Find the retained fragment on activity restarts
+        // Find the loaded fragment on activity restarts
         FragmentManager fragmentManager = getSupportFragmentManager();
         if (savedInstanceState != null) {
             mCurrentContentTag = savedInstanceState.getString(CURRENT_CONTENT_TAG);
@@ -160,13 +177,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestoreInstanceState(Bundle inState) {
         super.onRestoreInstanceState(inState);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
     }
 
     @Override
