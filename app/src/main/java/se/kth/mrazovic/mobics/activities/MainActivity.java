@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         // We override methods to prevent "hamburger icon" animation which is not needed when navigation drawer overlaps toolbar
         // Fragments will create their own toolbars and set them as action bars, but in the host activity we need set up
         // navigation drawer (menuUp) icon. Fragment will additionally set up local "menuUp" icon.
-        // TODO: With new release of Android support package replace ActionBarDrawerToggle
+        // TODO: With new release of Android support package replace ActionBarDrawerToggle or check the best practices for "navigation drawer + tab layout"
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close){
 
             @Override
