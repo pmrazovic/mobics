@@ -2,7 +2,10 @@ package se.kth.mrazovic.mobics.fragments;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -18,11 +21,14 @@ import android.view.ViewGroup;
 
 import se.kth.mrazovic.mobics.R;
 import se.kth.mrazovic.mobics.activities.MainActivity;
+import se.kth.mrazovic.mobics.activities.NewHumanTaskActivity;
+import se.kth.mrazovic.mobics.activities.NewSensingTaskActivity;
 import se.kth.mrazovic.mobics.adapters.TaskListPagerAdapter;
 
 
 public class HomeFragment extends Fragment {
     public static final String TAG = "se.kth.mrazovic.mobics.HOME_FRAGMENT";
+    private ViewPager mViewPager;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -56,15 +62,36 @@ public class HomeFragment extends Fragment {
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
 
         // Attaching adapter to ViewPager
-        ViewPager viewPager = (ViewPager) view.findViewById(R.id.home_pager);
+        mViewPager = (ViewPager) view.findViewById(R.id.home_pager);
         TaskListPagerAdapter taskListPagerAdapter = new TaskListPagerAdapter(getChildFragmentManager(), getActivity());
-        viewPager.setAdapter(taskListPagerAdapter);
+        mViewPager.setAdapter(taskListPagerAdapter);
 
         // Give the TabLayout the ViewPager
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.home_sliding_tabs);
-        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setupWithViewPager(mViewPager);
+
+        // Set onClickListener for floating action button
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab_create_new);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchNewTaskActivity();
+            }
+        });
 
         return view;
+    }
+
+    public void launchNewTaskActivity() {
+        int fragmentIndex = mViewPager.getCurrentItem();
+        if (fragmentIndex == 0) {
+            Intent intent = new Intent(getActivity(), NewHumanTaskActivity.class);
+            startActivity(intent);
+        } else if (fragmentIndex == 1) {
+            Intent intent = new Intent(getActivity(), NewSensingTaskActivity.class);
+            startActivity(intent);
+
+        }
     }
 
     @Override

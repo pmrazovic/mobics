@@ -35,10 +35,26 @@
         </activity>
         <activity
             android:name=".activities.WelcomeActivity"
+            android:excludeFromRecents="true"
             android:label="@string/title_activity_welcome"
             android:noHistory="true"
-            android:excludeFromRecents="true"
-            android:windowSoftInputMode="stateHidden|adjustResize">
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+        </activity>
+        <activity
+            android:name=".activities.NewHumanTaskActivity"
+            android:label="@string/title_activity_new_human_task"
+            android:parentActivityName=".activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="se.kth.mrazovic.mobics.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.NewSensingTaskActivity"
+            android:label="@string/title_activity_new_sensing_task"
+            android:parentActivityName=".activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="se.kth.mrazovic.mobics.activities.MainActivity" />
         </activity>
     </application>
 

@@ -45,7 +45,6 @@
     <string name="enter_cridentials">Please enter your email and password!</string>
     <string name="passwords_dont_match">Password confirmation does not match the original password!</string>
     <string name="fill_all_signup_details">All fields are required! Please enter email, username and password with confirmation.</string>
-
-
-    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_new_human_task">New human task</string>
+    <string name="title_activity_new_sensing_task">New sensing task</string>
 </resources>
