@@ -49,4 +49,12 @@
             android:icon="@drawable/ic_info_black_24dp"
             android:title="@string/about" />
     </group>
+    <group
+        android:id="@+id/grp_logout"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_power_settings_new_black_24dp"
+            android:title="@string/logout" />
+    </group>
 </menu>

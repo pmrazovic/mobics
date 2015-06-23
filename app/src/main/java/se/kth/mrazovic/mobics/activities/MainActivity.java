@@ -154,6 +154,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent aboutIntent = new Intent(this, AboutActivity.class);
                 startActivity(aboutIntent);
                 break;
+            case R.id.nav_logout:
+                // Logout from application
+                mSessionManager.logoutUser();
+                break;
         }
 
         // Replace content fragment of new activity is not started
