@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import se.kth.mrazovic.mobics.SessionManager;
 import se.kth.mrazovic.mobics.fragments.FavoriteTasksFragment;
 import se.kth.mrazovic.mobics.fragments.HomeFragment;
 import se.kth.mrazovic.mobics.fragments.MyProfileFragment;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment mCurrentContent;
     private String mCurrentContentTag;
     private MenuItem mCurrentContentNavItem;
+    private SessionManager mSessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
         setContentView(R.layout.activity_main);
+
+        mSessionManager = new SessionManager(this);
+        mSessionManager.checkLogin();
 
         // Find drawer layout
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);

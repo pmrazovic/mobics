@@ -31,7 +31,21 @@
     <string name="reply">Reply</string>
     <string name="responses">Responses</string>
     <string name="views">Views</string>
+    <string name="title_activity_welcome">Welcome to MobiCS</string>
+    <string name="login">Sign In</string>
+    <string name="create_account">Create account</string>
+    <string name="please_login">Please Log In</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="login_failed">Login failed</string>
+    <string name="signup_failed">Signup failed</string>
+    <string name="incorrect_combination">Incorrect email/password combination!</string>
+    <string name="enter_cridentials">Please enter your email and password!</string>
+    <string name="passwords_dont_match">Password confirmation does not match the original password!</string>
+    <string name="fill_all_signup_details">All fields are required! Please enter email, username and password with confirmation.</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>
