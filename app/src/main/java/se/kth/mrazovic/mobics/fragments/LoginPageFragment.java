@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import se.kth.mrazovic.mobics.R;
 import se.kth.mrazovic.mobics.SessionManager;
+import se.kth.mrazovic.mobics.activities.WelcomeActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,28 +54,46 @@ public class LoginPageFragment extends Fragment {
     }
 
     public void signInUser(){
-        String email = mEmailTextView.getText().toString();
-        String password = mPasswordTextView.getText().toString();
-        if (email.trim().length() > 0 && password.trim().length() > 0){
-            if (email.equals("test") && password.equals("test")) {
-                // TODO: replace with real information from server
-                mSessionManager.createLoginSession("test", "test@test.com");
+        if (((WelcomeActivity) getActivity()).isNetworkAvailable()) {
+            // Network connection available
+            String email = mEmailTextView.getText().toString();
+            String password = mPasswordTextView.getText().toString();
+            if (email.trim().length() > 0 && password.trim().length() > 0) {
+                if (email.equals("test") && password.equals("test")) {
+                    // TODO: replace with real information from server
+                    mSessionManager.createLoginSession("test", "test@test.com");
+                } else {
+                    AlertDialog.Builder alertDialogBuilder =
+                            new AlertDialog.Builder(getActivity())
+                                    .setTitle(R.string.login_failed)
+                                    .setMessage(R.string.incorrect_combination)
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                        }
+                                    });
+                    alertDialogBuilder.show();
+                }
             } else {
                 AlertDialog.Builder alertDialogBuilder =
                         new AlertDialog.Builder(getActivity())
-                        .setTitle(R.string.login_failed)
-                        .setMessage(R.string.incorrect_combination)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {}});
+                                .setTitle(R.string.login_failed)
+                                .setMessage(R.string.enter_cridentials)
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                    }
+                                });
                 alertDialogBuilder.show();
             }
         } else {
+            // Network connection disabled
             AlertDialog.Builder alertDialogBuilder =
                     new AlertDialog.Builder(getActivity())
-                            .setTitle(R.string.login_failed)
-                            .setMessage(R.string.enter_cridentials)
+                            .setTitle("Connection problem")
+                            .setMessage("Please make sure you have access to Internet.")
                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {}});
+                                public void onClick(DialogInterface dialog, int id) {
+                                }
+                            });
             alertDialogBuilder.show();
         }
     }
